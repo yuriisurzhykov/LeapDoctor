@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handedness: 0
+  timeRecognition: 0.1
 --- !u!114 &1351723285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,7 +652,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 83278e7188ea55a498165e1b85cde644, type: 2}
+  - {fileID: 2100000, guid: fa3a9cc839bdf9c4f9f6b586df82dd99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

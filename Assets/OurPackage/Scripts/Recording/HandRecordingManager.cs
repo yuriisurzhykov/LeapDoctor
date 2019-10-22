@@ -13,11 +13,4 @@ public abstract class HandRecordingManager : MonoBehaviour
     protected RiggedHand rigHand;
     /*Значение, которое определяет руки(правая или левая)*/
     [SerializeField] protected Chirality handedness;
-
-
-    // Start is called before the first frame update
-    protected abstract void Awake();
-
-    // Update is called once per frame
-    protected abstract void Update();
 }

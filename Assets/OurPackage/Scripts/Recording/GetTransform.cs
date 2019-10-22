@@ -17,7 +17,7 @@ public class GetTransform : HandRecordingManager
 
     private float tempTime = 0f;
 
-    protected override void Awake()
+    void Awake()
     {
         if (handedness == Chirality.LEFT)
         {
@@ -29,11 +29,11 @@ public class GetTransform : HandRecordingManager
             loadData = new LoadData("RightHand.json");
             rigHand = GameObject.FindGameObjectWithTag("RightHand").GetComponent<RiggedHand>();
         }
-        recordingHand.AddRange(rigHand.JointList);
+        recordingHand = rigHand.JointList;
     }
 
     // Update is called once per frame
-    protected override void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -71,5 +71,5 @@ public class GetTransform : HandRecordingManager
             timeRecognition = 0;
         }
     }
-    
+
 }

@@ -15,7 +15,7 @@ public class HandMover : HandRecordingManager
     protected SavedData dataTransform;
 
     // Start is called before the first frame update
-    protected override void Awake()
+    void Awake()
     {
         if (handedness == Chirality.LEFT)
         {
@@ -37,7 +37,7 @@ public class HandMover : HandRecordingManager
     }
 
     // Update is called once per frame
-    protected override void Update()
+    void Update()
     {
         MoveHand();
     }
