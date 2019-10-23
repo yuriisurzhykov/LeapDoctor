@@ -36,10 +36,10 @@ public class RecognitionManager : HandMover
     {
         switch (handedness)
         {
-            case Chirality.LEFT:
+            case Chirality.Left:
                 loadData = new LoadData("LeftHand");
                 break;
-            case Chirality.RIGHT:
+            case Chirality.Right:
                 loadData = new LoadData("RightHand");
                 break;
         }

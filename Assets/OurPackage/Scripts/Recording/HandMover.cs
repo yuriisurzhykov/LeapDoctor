@@ -13,11 +13,13 @@ public class HandMover : HandRecordingManager
 
     protected int curInxTransform = 0;
     protected SavedData dataTransform;
+    private CheckMatch checkMatch = null;
 
     // Start is called before the first frame update
     void Awake()
     {
-        if (handedness == Chirality.LEFT)
+        checkMatch = gameObject.GetComponent<CheckMatch>();
+        if (handedness == Chirality.Left)
         {
             loadData = new LoadData("LeftHand.json");
             if (PlayerPrefs.GetString("LeftHand.json") != "")
@@ -39,16 +41,17 @@ public class HandMover : HandRecordingManager
     // Update is called once per frame
     void Update()
     {
-        MoveHand();
+        if(checkMatch.getMatchWas)
+            MoveHand();
     }
 
     public virtual void MoveHand()
     {
-        if(getedPosition.Count != 0 && getedRotation.Count != 0)
+        if (getedPosition.Count != 0 && getedRotation.Count != 0)
         {
-            for(int i = 0; i < localTransform.Count; i++)
+            for (int i = 0; i < localTransform.Count; i++)
             {
-                localTransform[i].position = getedPosition[curInxTransform];
+                localTransform[i].position = new Vector3(getedPosition[curInxTransform].x, getedPosition[curInxTransform].y, getedPosition[curInxTransform].z - 0.05f);
                 localTransform[i].rotation = getedRotation[curInxTransform];
                 curInxTransform++;
             }
@@ -61,5 +64,9 @@ public class HandMover : HandRecordingManager
     public List<Transform> getLocalTransforms()
     {
         return localTransform;
+    }
+    public Chirality getChirality()
+    {
+        return handedness;
     }
 }

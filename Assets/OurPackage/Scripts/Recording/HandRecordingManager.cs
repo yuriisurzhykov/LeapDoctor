@@ -5,8 +5,6 @@ using Leap.Unity;
 
 public abstract class HandRecordingManager : MonoBehaviour
 {
-    public enum Chirality { LEFT, RIGHT }
-
     /*Ссылка на объект класса LoadData, в котором реализовано сохранение и выгрузка положений руки*/
     protected LoadData loadData;
     /*Ссылка на нужный объект класса RiggedHand в соответствии с хиральностью руки*/

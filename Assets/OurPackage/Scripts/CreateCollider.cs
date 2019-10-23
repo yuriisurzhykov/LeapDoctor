@@ -6,6 +6,8 @@ using System;
 
 public class CreateCollider : MonoBehaviour
 {
+
+    [SerializeField] Chirality handedness;
     [SerializeField] private float realFingerRadius;
     [SerializeField] private float virtualFingerRadius;
     [SerializeField] private float palmRaduis;
@@ -20,11 +22,16 @@ public class CreateCollider : MonoBehaviour
         HandMover[] haM = FindObjectsOfType<HandMover>();
         for(int i = 0; i < haM.Length; i++)
         {
-            virtualPos.AddRange(haM[i].getLocalTransforms().ToArray());
+            if(handedness == haM[i].getChirality())
+            {
+                virtualPos = haM[i].getLocalTransforms();
+            }
         }
         int counter = 0;
-        localPos = GameObject.FindGameObjectWithTag("LeftHand").GetComponent<RiggedHand>().JointList;
-        localPos.AddRange(GameObject.FindGameObjectWithTag("RightHand").GetComponent<RiggedHand>().JointList);
+        if(handedness == Chirality.Left)
+            localPos = GameObject.FindGameObjectWithTag("LeftHand").GetComponent<RiggedHand>().JointList;
+        else
+            localPos = GameObject.FindGameObjectWithTag("RightHand").GetComponent<RiggedHand>().JointList;
         foreach(var pos in localPos)
         {
             if (counter % 26 == 0)
@@ -33,7 +40,9 @@ public class CreateCollider : MonoBehaviour
                 continue;
             }
             var col = pos.gameObject.AddComponent<SphereCollider>();
-            col.isTrigger = true;
+            var rig = pos.gameObject.AddComponent<Rigidbody>();
+            rig.isKinematic = true;
+            col.isTrigger = false;
             col.radius = realFingerRadius;
             counter++;
         }
@@ -45,6 +54,7 @@ public class CreateCollider : MonoBehaviour
                 counter++;
                 continue;
             }
+            pos.gameObject.AddComponent<CheckZone>();
             var col = pos.gameObject.AddComponent<SphereCollider>();
             col.isTrigger = true;
             col.radius = virtualFingerRadius;

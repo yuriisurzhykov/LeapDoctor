@@ -19,7 +19,7 @@ public class GetTransform : HandRecordingManager
 
     void Awake()
     {
-        if (handedness == Chirality.LEFT)
+        if (handedness == Chirality.Left)
         {
             loadData = new LoadData("LeftHand.json");
             rigHand = GameObject.FindGameObjectWithTag("LeftHand").GetComponent<RiggedHand>();

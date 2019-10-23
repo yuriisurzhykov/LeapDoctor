@@ -13,9 +13,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Leap;
 using Leap.Unity.Attributes;
+using Leap.Unity.Animation.Internal;
 
 namespace Leap.Unity
 {
+    
     /** This version of HandModelBase supports a hand respresentation based on a skinned and jointed 3D model asset.*/
     public class RiggedHand : HandModel
     {
