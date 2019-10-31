@@ -13,8 +13,6 @@ using UnityEditorInternal;
 using Leap.Unity.InputModule;
 using Leap.Unity;
 
-namespace Leap.LeapCSharp;
-
 namespace Leap.Unity.InputModule
 {
 
