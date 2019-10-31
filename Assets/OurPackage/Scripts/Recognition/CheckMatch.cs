@@ -44,14 +44,3 @@ if (isMatchWas)
             Debug.Log("true");
     }
 }
-
-//if (checkZone[i])
-//            {
-//                check++;
-//            }
-
-//            else
-//            {
-                
-//                break;
-//            }
