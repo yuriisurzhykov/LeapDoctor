@@ -10,11 +10,17 @@ namespace LeapGR.GestureModel
         [XmlElement(ElementName = "Direction")]                         //direction: +1 -> positive changing
         public int Direction { get; set; }                              //             -1 -> negative
 
-        [XmlElement(ElementName = "Order", IsNullable = true)]          //order of perfomance part of movement
+        [XmlElement(ElementName = "FramesCount")]                       //the number of frames to perform part of the movement
+        public int FramesCount { get; set; }
+
+        [XmlElement(ElementName = "Order", IsNullable = true)]          //the execution order of part of the movement
         public int? Order { get; set; }
 
-        [XmlElement(ElementName = "FramesCount")]                       //amount frames for of perfomance the part of movement
-        public int FramesCount { get; set; }
+        [XmlElement(ElementName = "NumberFingers")]                     //number of fingers
+        public int? AmountFingers { get; set; }
+
+        [XmlElement(ElementName = "Fingers")]                           //array of fingerses numbers
+        public int Finger { get; set; }
     }
 
     /// <summary>

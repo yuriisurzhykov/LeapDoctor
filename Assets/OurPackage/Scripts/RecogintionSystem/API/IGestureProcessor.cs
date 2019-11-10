@@ -7,10 +7,8 @@ namespace LeapGR.API
         void LoadGestures();
         void InitializeProcessor();
         void InitializeSensor();
-        void CheckDirection(int gestureIndex, Primitive primitive, Leap.Finger[] fingers);
+        void CheckDirection(int gestureIndex, Primitive primitive, Leap.Finger finger);
         void CheckGesture(Gesture gesture);
-        void CheckFinger(Gesture gesture, Leap.Finger[] fingers);
-        void UninitializeSensor();
-        void UninitializeProcessor();
+        void CheckFinger(Gesture gesture, Leap.Finger finger);
     }
 }

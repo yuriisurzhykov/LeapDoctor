@@ -11,7 +11,7 @@ namespace Leap
 {
     using System;
     using System.Threading;
-
+    using LeapGR;
     using LeapInternal;
 
     /// <summary>
@@ -80,6 +80,12 @@ namespace Leap
         }
 
         private bool _hasInitialized = false;
+
+        internal void EnableGesture(object tYPE_SWIPE)
+        {
+            throw new NotImplementedException();
+        }
+
         private EventHandler<LeapEventArgs> _init;
 
         /// <summary>
@@ -824,6 +830,16 @@ namespace Leap
         {
             _hasInitialized = false;
             _hasConnected = false;
+        }
+
+        internal void AddListener(Listener gestureProcessor)
+        {
+            
+        }
+
+        internal void RemoveListener(GestureProcessor gestureProcessor)
+        {
+            
         }
     }
 }
